@@ -1,0 +1,18 @@
+:root {
+	--purple: #5851FF;
+	--light-purple: #F4F4FD;
+	--black: #100F22;
+	--dark-gray: #7A798D;
+	--gray: #C9C8D2;
+	--light-gray: #E4E4E6;
+	--white: #ffffff;	
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: var(--black);
+}
