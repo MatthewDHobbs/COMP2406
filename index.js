@@ -2,14 +2,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
-const cors = require('cors');
 
 const port = 3000;
 const app = new express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-
-app.use(cors());
 
 const ws = require('./backend/ws');
 io.on('connect', ws.connection);
