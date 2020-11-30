@@ -2,6 +2,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
+const cors = require('cors');
 
 const port = 3000;
 const app = new express();
@@ -13,6 +14,14 @@ io.on('connect', ws.connection);
 
 const eod = require('./backend/eod');
 eod.init();
+
+const whitelist = ['http://localhost:3000', 'http://localhost:9999'];
+app.use(cors({
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1) callback(null, true);
+        else callback(new Error('Not allowed by CORS'));
+    }
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
