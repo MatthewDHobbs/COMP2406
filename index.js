@@ -9,10 +9,7 @@ const app = new express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-app.use(cors({
-    origin: 'http://localhost:9999',
-    optionsSuccessStatus: 200
-}));
+app.use(cors());
 
 const ws = require('./backend/ws');
 io.on('connect', ws.connection);
