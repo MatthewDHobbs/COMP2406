@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import * as http from './http';
 import { user, portfolioValue, orders, stocks, activeStock, activeStockData, activeStockHistory, allOrders, date } from './stores';
 
-const url = 'http://localhost:3000'
+const url = 'http://localhost:9999'
 let socket;
 
 export function init() {
