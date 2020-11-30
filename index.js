@@ -10,6 +10,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 app.use(cors());
+app.options('*', cors());
 
 const ws = require('./backend/ws');
 io.on('connect', ws.connection);
