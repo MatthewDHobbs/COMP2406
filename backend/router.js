@@ -10,7 +10,6 @@ const router = new express.Router();
 const accessTokenSecret = 'abcdefghijklmnopqrstuvwxyz';
 
 const authenticateJWT = (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     const accessToken = req.headers.token;
     if (accessToken) {
         jwt.verify(accessToken, accessTokenSecret, (error, data) => {
@@ -46,7 +45,6 @@ router.post('/auth/accessToken', authenticateJWT, async (req, res) => {
 });
 
 router.post('/auth/signIn', async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     models.accountsModel.findOne({email: req.body.email}).select('hash').exec((error, data) => {
         if (error || !data) return res.json(error || 'Incorrect email');
         bcrypt.compare(req.body.password, data.hash, function(error, result) {
@@ -58,7 +56,6 @@ router.post('/auth/signIn', async (req, res) => {
 });
 
 router.post('/auth/createAccount', async (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     models.accountsModel.findOne({email: req.body.email}, (error, data) => {
         if (error || data) return res.json('Account already exists');
         bcrypt.hash(req.body.password, 10, (error, hash) => {
