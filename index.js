@@ -10,7 +10,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:9999',
     optionsSuccessStatus: 200
 }));
 
