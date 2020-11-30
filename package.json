@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "got": "^11.7.0",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
     "mongoose": "^5.10.9",
     "nodemailer": "^6.4.15",
     "page": "^1.11.6",

@@ -1,12 +1,9 @@
-let simulatedDate = new Date();
-
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
 
 const port = 3000;
-
 const app = new express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
@@ -26,6 +23,6 @@ app.use('/api', router);
 app.use(express.static('frontend/public'));
 app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html')));
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.1ftcd.mongodb.net/broker?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+mongoose.connect('mongodb://localhost:27017/stockdb', { useNewUrlParser: true, useUnifiedTopology: true }, () => {
     http.listen(port, () => console.log(`App listening on port ${port}`));
 });

@@ -1,12 +1,17 @@
-STOCK BROKER PROJECT - SUBMISSION 2
+STOCK BROKER PROJECT - SUBMISSION 3
 
-For this submission, I have the basics of buying and selling stocks implemented. Users can create buy orders and sell orders. To test the app you can sign in to the admin account (email: admin@admin.com, password: admin).
-This account has all the stocks in the portfolio (i.e. 100 shares of each stock). You can create sell orders in this account and see them in the orders page. You can then create an account for yourself. In the account
-you create, you can deposit funds in the nav menu, and create buy orders.
+* For this check-in I have pushed my code to OpenStack, however, I was unaware that I am unable to connect to MongoDB Atlas from the OpenStack instance.
+* I emailed Professor Shaikhet and she said that you would be able to run it locally to test the functionality as I still need to write some initialization scripts for a local database on OpenStack.
 
-There are a few issues regarding buying and selling stock that you should be aware of.
-- Automatic updates are not currently implemented: you will need to refresh the page to see changes.
-- Buy and sell order expiration dates are not currently implemented (although you can cancel orders in the orders page).
+There are still a few things that I need to work on:
+- Sorting history by type and date
+- Cleaning up user interface
+- Bug fixes
+
+OpenStack Information
+- 134.117.132.197
+- student
+- Westfield7
 
 ----------
 
@@ -21,6 +26,8 @@ Below is a list of all the important files and what each one is responsible for.
 - router.js (Routes for backend API)
 - schema.js (Defines mongoose schema and models)
 - order.js (Handles coordinating buy and sell orders)
+- eod.js (Handles end of day processes)
+- ws.js (Handles notifications for client (i.e. auto refresh when a stock is bought/sold))
 
 /frontend/public
 - index.html and global.css
