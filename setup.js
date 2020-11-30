@@ -3,9 +3,14 @@ const bcrypt = require('bcrypt');
 const models = require('./backend/schema');
 const stocks = require('./stocks.json');
 
-mongoose.connect('mongodb://localhost:27017/stockdb', { useNewUrlParser: true, useUnifiedTopology: true }, async () => {
+mongoose.connect('mongodb://127.0.0.1:27017/stockdb', { useNewUrlParser: true, useUnifiedTopology: true }, async () => {
 
     const adminPortfolio = {};
+
+    await models.accountsModel.deleteMany();
+    await models.stocksModel.deleteMany();
+    await models.datesModel.deleteMany();
+    await models.ordersModel.deleteMany();
 
     console.log('Saving stocks');
     for (let stock of stocks) {
@@ -37,6 +42,6 @@ mongoose.connect('mongodb://localhost:27017/stockdb', { useNewUrlParser: true, u
     const document = new models.datesModel({ date: 1, content });
     await document.save();
 
-    console.log('Done! You can stop this script now.');
+    console.log('Done!');
     
 });

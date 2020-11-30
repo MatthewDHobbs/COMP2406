@@ -44,10 +44,6 @@ router.post('/auth/accessToken', authenticateJWT, async (req, res) => {
     });
 });
 
-router.get('/test', (req, res) => {
-    res.send('test route');
-});
-
 router.post('/auth/signIn', async (req, res) => {
     models.accountsModel.findOne({email: req.body.email}).select('hash').exec((error, data) => {
         if (error || !data) return res.json(error || 'Incorrect email');
