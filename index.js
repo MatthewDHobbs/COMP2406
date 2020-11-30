@@ -9,13 +9,13 @@ const app = new express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
+app.use(cors());
+
 const ws = require('./backend/ws');
 io.on('connect', ws.connection);
 
 const eod = require('./backend/eod');
 eod.init();
-
-app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
