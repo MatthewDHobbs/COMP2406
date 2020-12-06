@@ -16,7 +16,7 @@
 
     async function withdraw(event) {
         if ($user.balance >= event.target.withdrawAmount.value) {
-            let newUser = await http.withdraw(event.target.withdrawAmount.value)
+            let newUser = await http.withdraw(event.target.withdrawAmount.value);
             if (!newUser.portfolio) newUser.portfolio = {};
             user.set(newUser);
         } else {
@@ -88,6 +88,6 @@
         <button on:click={() => http.forceEOD()}>Force EOD</button>
     {/if}
     {#if $date}
-        <div>{$date.date}</div>
+        <div>Day {$date.date}</div>
     {/if}
 </div>
