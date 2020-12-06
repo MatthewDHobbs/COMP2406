@@ -12,7 +12,6 @@
             const authResponse = await http.accessTokenAuth(signInResponse.accessToken);
             if (!authResponse.portfolio) authResponse.portfolio = {};
             user.set(authResponse);
-            date.set(await http.date());
             init();
             page('/');
         }
@@ -26,7 +25,6 @@
                 const authResponse = await http.accessTokenAuth(createAccountResponse.accessToken);
                 if (!authResponse.portfolio) authResponse.portfolio = {};
                 user.set(authResponse);
-                date.set(await http.date());
                 init();
                 page('/');
             }
@@ -36,6 +34,8 @@
     }
 
     async function init() {
+        date.set(await http.date());
+        
         const stocksResponse = await http.getStocks();
         stocks.set(stocksResponse);
 
