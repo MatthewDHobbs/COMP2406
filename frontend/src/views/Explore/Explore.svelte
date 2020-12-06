@@ -9,7 +9,7 @@
         font-size: 24px;
         font-weight: 500;
         color: var(--black);
-        margin: 0px 40px 40px 40px;
+        margin: 40px;
     }
     .industry-grid {
         display: grid;
