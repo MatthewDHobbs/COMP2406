@@ -1,7 +1,7 @@
 <script>
     import page from 'page';
     import * as http from '../../http';
-    import { user, portfolioValue, stocks, industries } from '../../stores';
+    import { user, portfolioValue, stocks, industries, date } from '../../stores';
 
     let view = 'Sign in';
 
@@ -12,6 +12,7 @@
             const authResponse = await http.accessTokenAuth(signInResponse.accessToken);
             if (!authResponse.portfolio) authResponse.portfolio = {};
             user.set(authResponse);
+            date.set(await http.date());
             init();
             page('/');
         }
@@ -25,6 +26,7 @@
                 const authResponse = await http.accessTokenAuth(createAccountResponse.accessToken);
                 if (!authResponse.portfolio) authResponse.portfolio = {};
                 user.set(authResponse);
+                date.set(await http.date());
                 init();
                 page('/');
             }
