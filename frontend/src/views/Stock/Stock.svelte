@@ -20,6 +20,7 @@
     }
 
     async function addToWatchlist() {
+        console.log($activeStock);
         await http.addToWatchlist($activeStock);
         refreshUser();
     }

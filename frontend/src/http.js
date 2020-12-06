@@ -1,4 +1,4 @@
-const url = 'http://localhost:9999/api';
+const url = 'http://localhost:3000/api';
 
 export function signIn(email, password) {
     return new Promise(resolve => {
@@ -70,7 +70,6 @@ export function getStockHistory(ticker) {
         .then(data => resolve(data));
     });
 }
-
 
 export function buyOrder(ticker, price, quantity, expire) {
     let token = localStorage.getItem('accessToken'); 

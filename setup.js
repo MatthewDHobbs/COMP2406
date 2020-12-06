@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const models = require('./backend/schema');
 const stocks = require('./stocks.json');
 
-mongoose.connect('mongodb://127.0.0.1:27017/stockdb', { useNewUrlParser: true, useUnifiedTopology: true }, async () => {
+mongoose.connect('mongodb://localhost:27017/stockdb', { useNewUrlParser: true, useUnifiedTopology: true }, async () => {
 
     const adminPortfolio = {};
 
